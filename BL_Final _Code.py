@@ -571,36 +571,6 @@ import pickle
 logre_model=pickle.load(open('C:/Users/saigo/Desktop/s/logre_model','rb'))
 
 
-# In[60]:
-
-
-X_train[0]
-
-
-# In[61]:
-
-
-user_input=np.array(X_train[0])
-
-
-# In[62]:
-
-
-user_input=user_input.reshape(1,-1)
-
-
-# In[63]:
-
-
-logre_model.predict(user_input)[0]
-
-
-# In[ ]:
-
-
-y_train[0]
-
-
 # In[ ]:
 
 
@@ -617,7 +587,28 @@ pip install pywebio
 #logre_model=pickle.load(open('C:/Users/saigo/Desktop/s/logre_model','rb'))
 
 
-# In[ ]:
+# In[70]:
+
+
+from pywebio.platform.flask import webio_view
+from pywebio import STATIC_PATH
+from flask import Flask
+from pywebio.input import*
+from pywebio.output import*
+from pywebio import start_server
+from pywebio.input import *
+from pywebio.output import *
+from pywebio.session import *
+from pywebio.pin import *
+import pickle
+import numpy as np
+import pywebio
+import pandas as pd
+
+from joblib import dump,load
+
+
+# In[67]:
 
 
 app=Flask(__name__)
@@ -654,31 +645,5 @@ app.run(host='localhost',port=88)
 # In[ ]:
 
 
-X_train[1]
 
-
-# In[ ]:
-
-
-y_train[0]
-
-
-# In[ ]:
-
-
-sampleList = np.array(bank_1[:2])
-sampleList
-
-
-# In[ ]:
-
-
-bank_1.head()
-
-
-# In[ ]:
-
-
-#[32.35619303,  7.23615625,  2.60150296, 89.80156532,  9.3       ,11.359392  ,  5.008608  ,       ] - ouput -1
-#[27.        , 10.        ,  6.        , 31.        , 17.3       ,1.362202  ,  4.000798  ,      ]  -output -0 
 
